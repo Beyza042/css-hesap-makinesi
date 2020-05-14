@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+    <title>HTML5 ile Hesap Makinesi Yapımı </title>
+    <meta charset="utf-8">
+    <meta name="description" content="Free Web Tutorials">
+    <meta name="keywords" content="HTML,CSS,JavaScript,PHP,ASP">
+    <meta name="author" content="Sadet Sevinç">
+    <link href="http://s2.dmcdn.net/YZ5WA/240x240-Igr.png" rel="shortcut icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding:0;
+        }
+        #hm {
+            background: #bcd;
+            border-radius: 5px;
+            margin: 10px auto;
+            border: 10px solid #bcd;
+            position: relative;
+            width: 56%;
+            height: 390px;
+        }
+        #hm h1 {
+            font-family: 'Jura', sans-serif;Consolas;
+            color: #abc;
+            font-size: .7cm;
+            background: #bcd;
+            text-align:left;
+            text-shadow: 0 -1px 1px #000, 0 1px 1px #def;
+            padding-top: 10px;
+            padding-left: 20px;
+        }
+        #hm > #sonuc {
+            font-family: Consolas;
+            font-size: 20px;
+            color: #bcd;
+            text-align: right;
+            padding-right: 5px;
+            border: 1px solid #cde;
+            border-radius: 5px;
+            width: 95%;
+            height: 30px;
+        }
+        form > .btn {
+            font-family: Consolas;
+            font-size: 16px;
+            color: #555;
+            text-align: center;
+            background: #fff;
+            border: 2px solid #cde;
+            border-radius: 50%;
+            -webkit-transition: all 2s;
+            transition: all 2s;
+            margin-top: 2px;
+            margin-left: 1px;
+            width: 45px;
+            height: 45px;
+        }
+        #hm > #esit,#sil {
+            font-family: Consolas;
+            font-size: 20px;
+            color: #0aa;
+            text-align: center;
+            background: #fff;
+            border: 2px solid #cde;
+            border-radius: 50%;
+            -webkit-transition: all 2s;
+            transition: all 2s;
+            margin: 0px;
+            width: 45px;
+            height: 45px;
+        }
+        #hm > .btn:hover {
+            color: #f00;
+            background: #fff;
+            border: 2px solid #f00;
+            -webkit-transition: all 2s;
+            transition: all 2s;
+            cursor: pointer;
+        }
+        #hm > #esit:hover {
+            color: #f00;
+            background: #fff;
+            border: 2px solid #f00;
+            -webkit-transition: all 2s;
+            transition: all 2s;
+            cursor: pointer;
+        }
+        #hm > #sil:hover {
+            color: #f00;
+            background: #fff;
+            border: 2px solid #f00;
+            -webkit-transition: all 2s;
+            transition: all 2s;
+            cursor: pointer;
+        }
+        #hm > #altbolum {
+            font-family: Consolas;
+            font-size: 16px;
+            color: #bcd;
+            text-align: center;
+            background: transparent;
+            text-shadow: 0 -1px 1px #000, 0 1px 1px #def;
+            padding: 0px 0 10px 0;
+            position: absolute;
+            left: 80px;
+            bottom: -5px;
+        }
+    </style>
+</head>
+<body>
+
+<form name="hesapla" id="hm">
+
+    <h1>Hesap Makinesi</h1><br/>
+
+    <input type="text" name="sec" id="sonuc" autofocus><br/><br/>
+
+    <input type="button" value=" 1 " class="btn" name="1" onclick="hesapla.sec.value +='1'";<br/>
+    <input type="button" value=" 2 " class="btn" name="2" onclick="hesapla.sec.value +='2'";<br/>
+    <input type="button" value=" 3 " class="btn" name="3" onclick="hesapla.sec.value +='3'";<br/>
+    <input type="button" value=" 4 " class="btn" name="4" onclick="hesapla.sec.value +='4'";<br/>
+    <input type="button" value=" + " class="btn" name="+" onclick="hesapla.sec.value +='+'";<br/>
+    <input type="button" value=" – " class="btn" name="-" onclick="hesapla.sec.value +='-'";<br/>
+    <input type="button" value=" 5 " class="btn" name="5" onclick="hesapla.sec.value +='5'";<br/>
+    <input type="button" value=" 6 " class="btn" name="6" onclick="hesapla.sec.value +='6'";<br/>
+    <input type="button" value=" 7 " class="btn" name="7" onclick="hesapla.sec.value +='7'";<br/>
+    <input type="button" value=" 8 " class="btn" name="8" onclick="hesapla.sec.value +='8'";<br/>
+    <input type="button" value=" × " class="btn" name="*" onclick="hesapla.sec.value +='*'";<br/>
+    <input type="button" value=" / " class="btn" name="bol" onclick="hesapla.sec.value +='/'";<br/>
+    <input type="button" value=" 9 " class="btn" name="9" onclick="hesapla.sec.value +='9'";<br/>
+    <input type="button" value=" 0 " class="btn" name="0" onclick="hesapla.sec.value +='0'";<br/>
+    <input type="button" value=" . " class="btn" name=" . " onclick="hesapla.sec.value +='.'";<br/>
+    <input type="button" value="π" class="btn" name=" π " onclick="hesapla.sec.value += '3.1415926535897932384626433832795'";<br/>
+    <input type="button" value="₍" class="btn"" name="/" onclick="hesapla.sec.value +='('";<br/>
+    <input type="button" value="₎" class="btn" name="/" onclick="hesapla.sec.value +=')'";<br/>
+    <input type="button" value=" ¼ " class="btn" name="ceyrek" onclick="hesapla.sec.value = eval(hesapla.sec.value / 4)";<br/>
+    <input type="button" value=" ½ " class="btn" name="yarim" onclick="hesapla.sec.value = eval(hesapla.sec.value / 2)";<br/>
+    <input type="button" value=" ¾ " class="btn" name="dortteuc" onclick="hesapla.sec.value = eval(hesapla.sec.value / 4 * 3)";<br/>
+    <input type="button" value=" ⅕ " class="btn" name="bestbir" onclick="hesapla.sec.value = eval(hesapla.sec.value / 5)";<br/>
+    <input type="button" value=" 1/10 " style="font-size: 12px;" class="btn" name="ondabir" onclick="hesapla.sec.value = eval(hesapla.sec.value / 10)";<br/>
+    <input type="button" value="1⁄100" class="btn" name="yuzdebir" onclick="hesapla.sec.value = eval(hesapla.sec.value / 100)" style="font-size:14px";<br/>
+    <input type="button" value=" x² " class="btn" name=" x2 " onclick="hesapla.sec.value = eval(* hesapla.sec.value)";<br/>
+    <input type="button" value="x³" class="btn" name="kup" onclick="hesapla.sec.value = eval(hesapla.sec.value * hesapla.sec.value * hesapla.sec.value)";<br/>
+    <input type="button" value="√" class="btn" name="kok" onclick="sr()";<br/>
+    <input type="button" value="←" title="geri"  class="btn" name="geri" onclick="backspace()";<br/>
+
+    <input type="button" value="=" id="esit" title="eşit" name="=" onclick="hesapla.sec.value = eval(hesapla.sec.value)";<br/>
+    <input type="button" value="C" id="sil" title="sil" name="sil" onclick="reset()";<br/>
+    <p id="altbolum"> Beyza ÖREN</p>
+</form>
+<script type="text/javascript">
+    function backspace() {
+        numbers=document.getElementById('sonuc').value;
+        lnth=numbers.length-1;
+        newnum=numbers.substring(0,lnth);
+        document.getElementById('sonuc').value=newnum;
+    }
+    function trig(contype) {
+        var degtype = GetButtonValue(document.degform.degtypes);
+        if(degtype=="Degrees") {endegs=document.getElementById('sonuc').value*Math.PI/180;}
+        else
+            endegs=document.getElementById('sonuc').value;
+        if(contype=="cosine")result1=Math.cos(endegs);
+        if(contype=="sine")result1=Math.sin(endegs);
+        if(contype=="tangent")result1=Math.tan(endegs);
+        result1=Math.round(result1*1000)/1000;
+        document.getElementById('sonuc').value=result1
+    }
+    function sr() {
+        valstore=null;
+        document.getElementById('sonuc').value=Math.sqrt(document.getElementById('sonuc').value);
+        valstore=document.getElementById('sonuc').value;
+        document.getElementById('sonuc').focus();
+    }
+</script>
+</body>
+</html>
